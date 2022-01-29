@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class FirstPlayerController : MonoBehaviour
+
+
+public class SecondPlayerController : MonoBehaviour
 {
     public float speed = 5f;
+    [SerializeField] private FirstPlayerController firstPlayer;
     [SerializeField] public PlayerActions playerActions;
     [SerializeField] private Vector2 moveInput;
     [SerializeField] private Rigidbody rBody;
@@ -15,6 +18,11 @@ public class FirstPlayerController : MonoBehaviour
     {
         playerActions = new PlayerActions();
         rBody = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        speed = firstPlayer.speed;
     }
 
     private void OnEnable()
@@ -36,9 +44,9 @@ public class FirstPlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        if(playerActions.PlayerMap.Movement1.IsPressed())
+        if (playerActions.PlayerMap.Movement2.IsPressed())
         {
-            moveInput = playerActions.PlayerMap.Movement1.ReadValue<Vector2>();
+            moveInput = playerActions.PlayerMap.Movement2.ReadValue<Vector2>();
             transform.forward = new Vector3(moveInput.x, 0, moveInput.y);
             rBody.velocity = transform.forward * speed;
             //transform.position += transform.forward * speed * Time.deltaTime;
