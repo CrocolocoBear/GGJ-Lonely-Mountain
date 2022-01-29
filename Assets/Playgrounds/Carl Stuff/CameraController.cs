@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = regularOffset;
+        /*
         if (splitMng.state == 0)
         {
             transform.position = regularOffset + offset1;
@@ -28,5 +30,6 @@ public class CameraController : MonoBehaviour
         {
             transform.position = regularOffset + offset3;
         }
+        */
     }
 }
