@@ -13,7 +13,11 @@ public class SecondPlayerController : MonoBehaviour
     [SerializeField] public PlayerActions playerActions;
     [SerializeField] private Vector2 moveInput;
     [SerializeField] private Rigidbody rBody;
+    //[SerializeField] private AudioClip walkingLoop;
+    //[SerializeField] private AudioClip walkingLoop;
+    bool canMove = true;
     public Interactable interactItem;
+    [SerializeField] Animator animator;
 
     void Awake()
     {
@@ -23,7 +27,7 @@ public class SecondPlayerController : MonoBehaviour
 
     private void Start()
     {
-        speed = firstPlayer.speed;
+        //speed = firstPlayer.speed;
     }
 
     private void OnEnable()
@@ -45,12 +49,18 @@ public class SecondPlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        if (playerActions.PlayerMap.Movement2.IsPressed())
+        if (playerActions.PlayerMap.Movement2.IsPressed() && canMove)
         {
+            //ADD LOOPING WALKING SFX
+            animator.SetBool("Walking", true);
             moveInput = playerActions.PlayerMap.Movement2.ReadValue<Vector2>();
-            transform.forward = new Vector3(moveInput.x, 0, moveInput.y);
+            transform.forward = new Vector3(moveInput.x, 0, moveInput.y).normalized;
             rBody.velocity = transform.forward * speed;
             //transform.position += transform.forward * speed * Time.deltaTime;
+        }
+        else
+        {
+            animator.SetBool("Walking", false);
         }
     }
 
@@ -58,7 +68,13 @@ public class SecondPlayerController : MonoBehaviour
     {
         if (playerActions.PlayerMap.Interact2.WasPressedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && !interactItem.player1)
         {
+            //ADD SINGLE INTERACT SFX
+            canMove = false;
+            transform.forward = (interactItem.gameObject.transform.position - transform.position).normalized;
+            animator.SetBool("Walking", false);
+            animator.SetBool("Interacting", true);
             interactItem.Use();
+            StartCoroutine(InteractCooldown());
         }
     }
 
@@ -78,4 +94,10 @@ public class SecondPlayerController : MonoBehaviour
         }
     }
 
+    IEnumerator InteractCooldown()
+    {
+        yield return new WaitForSeconds(1.5f);
+        animator.SetBool("Interacting", false);
+        canMove = true;
+    }
 }
