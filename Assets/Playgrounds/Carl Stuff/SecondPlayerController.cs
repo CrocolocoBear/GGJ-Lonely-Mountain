@@ -13,6 +13,7 @@ public class SecondPlayerController : MonoBehaviour
     [SerializeField] public PlayerActions playerActions;
     [SerializeField] private Vector2 moveInput;
     [SerializeField] private Rigidbody rBody;
+    public Interactable interactItem;
 
     void Awake()
     {
@@ -39,7 +40,7 @@ public class SecondPlayerController : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
-
+        Interact();
     }
 
     void MovePlayer()
@@ -52,4 +53,29 @@ public class SecondPlayerController : MonoBehaviour
             //transform.position += transform.forward * speed * Time.deltaTime;
         }
     }
+
+    void Interact()
+    {
+        if (playerActions.PlayerMap.Interact2.WasPressedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && !interactItem.player1)
+        {
+            interactItem.Use();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            interactItem = other.GetComponent<Interactable>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            interactItem = null;
+        }
+    }
+
 }

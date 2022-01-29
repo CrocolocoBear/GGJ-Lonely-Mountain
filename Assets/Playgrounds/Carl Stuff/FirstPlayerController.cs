@@ -48,7 +48,7 @@ public class FirstPlayerController : MonoBehaviour
 
     void Interact()
     {
-        if (playerActions.PlayerMap.Interact1.WasPressedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed)
+        if (playerActions.PlayerMap.Interact1.WasPressedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && interactItem.player1)
         {
             interactItem.Use();
         }

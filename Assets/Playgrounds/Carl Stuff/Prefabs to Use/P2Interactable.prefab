@@ -223,7 +223,7 @@ MonoBehaviour:
   glowDithering: 0
   glowMagicNumber1: 0.75
   glowMagicNumber2: 0.5
-  glowAnimationSpeed: 0
+  glowAnimationSpeed: 1
   glowVisibility: 0
   glowBlitDebug: 0
   glowBlendPasses: 0

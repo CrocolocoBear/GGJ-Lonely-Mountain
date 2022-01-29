@@ -465,9 +465,21 @@ PrefabInstance:
       propertyPath: _highlighted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1776265464467575921, guid: 977ad4680f1d4c14799e83954c4f50f4, type: 3}
+      propertyPath: glowAnimationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776265464467575921, guid: 977ad4680f1d4c14799e83954c4f50f4, type: 3}
+      propertyPath: glowPasses.Array.data[0].offset
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3858135247223784970, guid: 977ad4680f1d4c14799e83954c4f50f4, type: 3}
       propertyPath: m_Name
       value: P2Interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858135247223784971, guid: 977ad4680f1d4c14799e83954c4f50f4, type: 3}
+      propertyPath: used
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3858135247223784973, guid: 977ad4680f1d4c14799e83954c4f50f4, type: 3}
       propertyPath: m_RootOrder
@@ -694,6 +706,7 @@ MonoBehaviour:
   speed: 5
   moveInput: {x: 0, y: 0}
   rBody: {fileID: 0}
+  interactItem: {fileID: 0}
 --- !u!136 &365336987
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -815,6 +828,10 @@ PrefabInstance:
     - target: {fileID: 3858135247223784970, guid: 085e4aaa8b9b525419e04754983b33c1, type: 3}
       propertyPath: m_Name
       value: P1Interactable (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858135247223784971, guid: 085e4aaa8b9b525419e04754983b33c1, type: 3}
+      propertyPath: usable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3858135247223784971, guid: 085e4aaa8b9b525419e04754983b33c1, type: 3}
       propertyPath: nextObject
