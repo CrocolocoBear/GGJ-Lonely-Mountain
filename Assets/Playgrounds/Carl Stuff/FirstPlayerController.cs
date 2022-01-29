@@ -10,6 +10,7 @@ public class FirstPlayerController : MonoBehaviour
     [SerializeField] public PlayerActions playerActions;
     [SerializeField] private Vector2 moveInput;
     [SerializeField] private Rigidbody rBody;
+    public Interactable interactItem;
 
     void Awake()
     {
@@ -31,7 +32,7 @@ public class FirstPlayerController : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
-
+        Interact();
     }
 
     void MovePlayer()
@@ -42,6 +43,30 @@ public class FirstPlayerController : MonoBehaviour
             transform.forward = new Vector3(moveInput.x, 0, moveInput.y);
             rBody.velocity = transform.forward * speed;
             //transform.position += transform.forward * speed * Time.deltaTime;
+        }
+    }
+
+    void Interact()
+    {
+        if (playerActions.PlayerMap.Interact1.WasPressedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed)
+        {
+            interactItem.Use();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            interactItem = other.GetComponent<Interactable>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            interactItem = null;
         }
     }
 }
