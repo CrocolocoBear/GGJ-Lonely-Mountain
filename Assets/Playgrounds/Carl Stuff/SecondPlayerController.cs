@@ -59,9 +59,14 @@ public class SecondPlayerController : MonoBehaviour
     {
         if (playerActions.PlayerMap.Movement2.IsPressed() && canMove)
         {
-            audioSrc.clip = walk;
-            audioSrc.loop = true;
-            audioSrc.Play();
+            
+            if (!audioSrc.isPlaying)
+            {
+                audioSrc.clip = walk;
+                audioSrc.loop = true;
+                audioSrc.Play();
+            }
+            
             animator.SetBool("Walking", true);
             moveInput = playerActions.PlayerMap.Movement2.ReadValue<Vector2>();
             transform.forward = new Vector3(moveInput.x, 0, moveInput.y).normalized;
@@ -70,6 +75,12 @@ public class SecondPlayerController : MonoBehaviour
         }
         else
         {
+            if (audioSrc.isPlaying)
+            {
+                audioSrc.clip = walk;
+                audioSrc.loop = false;
+                audioSrc.Stop();
+            }
             animator.SetBool("Walking", false);
         }
     }
