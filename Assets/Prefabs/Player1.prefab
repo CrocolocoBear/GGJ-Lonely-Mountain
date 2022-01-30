@@ -1098,7 +1098,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6328653889903225411}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.33, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1123,7 +1123,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!136 &6562462634986067743
 CapsuleCollider:
@@ -1174,6 +1174,7 @@ MonoBehaviour:
   speed: 3.5
   moveInput: {x: 0, y: 0}
   rBody: {fileID: 0}
+  interacting: 0
   interactItem: {fileID: 0}
   animator: {fileID: 6562462634986067728}
 --- !u!1 &6673532403595057065
