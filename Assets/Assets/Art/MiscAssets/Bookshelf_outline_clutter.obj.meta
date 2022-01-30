@@ -1,39 +1,9 @@
 fileFormatVersion: 2
-guid: 358ccb4aa8eee4d4fba439f06302f56d
+guid: 578807c62393cbb40bf5de1cbbc12af2
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: aiStandardSurface2SG
-    second: {fileID: 2100000, guid: 9d20dd234d74ed54b8f45fee4f640269, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: aiStandardSurface3SG
-    second: {fileID: 2100000, guid: ed7527d349bbfbf46b76bd86a9fbc87a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: aiStandardSurface4SG
-    second: {fileID: 2100000, guid: 52736e1f1f3e1254cbdd601e7abe4bc0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: aiStandardSurface5SG
-    second: {fileID: 2100000, guid: 4227521f451ae5e4bb5fcfea60e5fc3d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: aiStandardSurface6SG
-    second: {fileID: 2100000, guid: 00088bdcb6b75e74fb0a9ba8bb74cd9c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: aiStandardSurface7SG
-    second: {fileID: 2100000, guid: 96f484d1223cc334a92d84255448addd, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -65,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.07
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -118,7 +88,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.07
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

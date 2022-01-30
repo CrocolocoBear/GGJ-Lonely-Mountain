@@ -41,7 +41,10 @@ public class SplitViewManager : MonoBehaviour
         }
         else if (finalScene)
         {
-
+            mask2.localPosition = new Vector3(-960, 0, 0);
+            cam2Tex.localPosition = new Vector3(960, 0, 0);
+            separator.gameObject.SetActive(false);
+            separator2.gameObject.SetActive(false);
         }
     }
 }
