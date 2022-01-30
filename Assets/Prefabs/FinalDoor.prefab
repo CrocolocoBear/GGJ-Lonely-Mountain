@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 8768845791626796056}
   - component: {fileID: 3935264350121152046}
   - component: {fileID: 1037979518102686753}
+  - component: {fileID: 2263802720274496713}
   m_Layer: 0
   m_Name: Wall_Windows_Doors_Assets_Doors_pCube84_Door_02
   m_TagString: Untagged
@@ -163,3 +164,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2263802720274496713
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725298996199424737}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18601899, y: 2.9823527, z: 1.435923}
+  m_Center: {x: -8.890047, y: 0.067014396, z: -10.277059}
