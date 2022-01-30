@@ -12,6 +12,7 @@ public class Interactable : MonoBehaviour
     public bool disappear = false;
     public bool textBoxActive = false;
     public bool usedThisRound = false;
+    public bool unlocked = false;
     public Interactable nextObject;
     private HighlightEffect highlighter;
     public TextBox textBox;
@@ -47,6 +48,7 @@ public class Interactable : MonoBehaviour
         if (!textBox.moreLines && !usedThisRound)
         {
             used = true;
+            unlocked = true;
             usedThisRound = true;
             if (nextObject != null)
             {
