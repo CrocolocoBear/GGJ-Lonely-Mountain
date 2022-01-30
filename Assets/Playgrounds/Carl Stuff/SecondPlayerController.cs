@@ -19,6 +19,9 @@ public class SecondPlayerController : MonoBehaviour
     private bool interacting = false;
     public Interactable interactItem;
     [SerializeField] Animator animator;
+    public AudioClip walk;
+    public AudioClip interact;
+    public AudioSource audioSrc;
 
     void Awake()
     {
@@ -56,7 +59,9 @@ public class SecondPlayerController : MonoBehaviour
     {
         if (playerActions.PlayerMap.Movement2.IsPressed() && canMove)
         {
-            //ADD LOOPING WALKING SFX
+            audioSrc.clip = walk;
+            audioSrc.loop = true;
+            audioSrc.Play();
             animator.SetBool("Walking", true);
             moveInput = playerActions.PlayerMap.Movement2.ReadValue<Vector2>();
             transform.forward = new Vector3(moveInput.x, 0, moveInput.y).normalized;
@@ -73,7 +78,9 @@ public class SecondPlayerController : MonoBehaviour
     {
         if (playerActions.PlayerMap.Interact2.WasPressedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && !interactItem.player1 && !interacting)
         {
-            //ADD SINGLE INTERACT SFX
+            audioSrc.clip = interact;
+            audioSrc.loop = false;
+            audioSrc.Play();
             canMove = false;
             transform.forward = (interactItem.gameObject.transform.position - transform.position).normalized;
             animator.SetBool("Walking", false);
@@ -90,6 +97,9 @@ public class SecondPlayerController : MonoBehaviour
         }
         else if (interacting && playerActions.PlayerMap.Interact2.WasPressedThisFrame())
         {
+            audioSrc.clip = interact;
+            audioSrc.loop = false;
+            audioSrc.Play();
             canMove = false;
             interactItem.Use();
             if (interactItem.used)
