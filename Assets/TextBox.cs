@@ -7,12 +7,13 @@ public class TextBox : MonoBehaviour
 {
     [SerializeField] public string[] lines;
     public GameObject box;
-    int index = 0;
+    public int index = 0;
     public TMP_Text text;
     public bool moreLines = true;
     // Start is called before the first frame update
     void Start()
     {
+        index = 0;
         //text.text = lines[index];
     }
 
