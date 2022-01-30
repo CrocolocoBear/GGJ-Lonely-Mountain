@@ -1473,6 +1473,10 @@ PrefabInstance:
       propertyPath: nextObject
       value: 
       objectReference: {fileID: 1303036042}
+    - target: {fileID: 8690165259315939643, guid: d1907e22c43cce34b9514e3679dc2a73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8690165259315939644, guid: d1907e22c43cce34b9514e3679dc2a73, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1157
