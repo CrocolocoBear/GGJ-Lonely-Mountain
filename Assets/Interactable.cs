@@ -45,11 +45,10 @@ public class Interactable : MonoBehaviour
 
     public void Use()
     {
-        if (!textBox.moreLines && !usedThisRound)
+        if (!textBox.moreLines)
         {
             used = true;
             unlocked = true;
-            usedThisRound = true;
             if (nextObject != null)
             {
                 nextObject.used = false;
@@ -60,18 +59,16 @@ public class Interactable : MonoBehaviour
                 textBox.box.SetActive(false);
             }
         }
-        else if (textBoxActive && textBox.moreLines && !usedThisRound)
+        else if (textBoxActive && textBox.moreLines)
         {
             textBox.NextLine();
-            usedThisRound = true;
         }
-        else if(!textBoxActive && !usedThisRound)
+        else if(!textBoxActive)
         {
             beingUsed = true;
             textBoxActive = true;
             textBox.box.SetActive(true);
             textBox.text.text = textBox.lines[0];
-            usedThisRound = true;
         }
 
     }

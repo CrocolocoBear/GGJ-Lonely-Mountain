@@ -4039,7 +4039,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7d2a0f44637c2d943ba0940a9833287e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7735,11 +7735,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5497663756247385266, guid: 33b831434ebc0724387768eb1bc6e2f7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5497663756247385266, guid: 33b831434ebc0724387768eb1bc6e2f7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5497663756247385266, guid: 33b831434ebc0724387768eb1bc6e2f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7765,6 +7765,10 @@ PrefabInstance:
       propertyPath: splitMng
       value: 
       objectReference: {fileID: 1985403209}
+    - target: {fileID: 5497663756247385267, guid: 33b831434ebc0724387768eb1bc6e2f7, type: 3}
+      propertyPath: zoomLevel
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5497663756247385270, guid: 33b831434ebc0724387768eb1bc6e2f7, type: 3}
       propertyPath: m_Name
       value: Second Camera
@@ -9158,11 +9162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8246384006785102593, guid: fdf78fd0b1454fd48b8a8e5ca1b62f27, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8246384006785102593, guid: fdf78fd0b1454fd48b8a8e5ca1b62f27, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8246384006785102593, guid: fdf78fd0b1454fd48b8a8e5ca1b62f27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9200,6 +9204,10 @@ PrefabInstance:
       propertyPath: splitMng
       value: 
       objectReference: {fileID: 1985403209}
+    - target: {fileID: 8246384006785102606, guid: fdf78fd0b1454fd48b8a8e5ca1b62f27, type: 3}
+      propertyPath: zoomLevel
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdf78fd0b1454fd48b8a8e5ca1b62f27, type: 3}
 --- !u!137 &8502652814668007064

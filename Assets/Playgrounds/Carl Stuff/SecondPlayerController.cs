@@ -48,11 +48,7 @@ public class SecondPlayerController : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
-        Interact();
-        if (playerActions.PlayerMap.Interact2.WasReleasedThisFrame() && interactItem != null)
-        {
-            interactItem.usedThisRound = false;
-        }
+        playerActions.PlayerMap.Interact2.performed += _ => Interact();
     }
 
     void MovePlayer()
@@ -87,7 +83,7 @@ public class SecondPlayerController : MonoBehaviour
 
     void Interact()
     {
-        if (playerActions.PlayerMap.Interact2.WasPressedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && !interactItem.player1 && !interacting)
+        if (interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && !interactItem.player1 && !interacting)
         {
             audioSrc.clip = interact;
             audioSrc.loop = false;
@@ -106,7 +102,7 @@ public class SecondPlayerController : MonoBehaviour
                 interacting = true;
             }
         }
-        else if (interacting && playerActions.PlayerMap.Interact2.WasPressedThisFrame())
+        else if (interacting)
         {
             audioSrc.clip = interact;
             audioSrc.loop = false;

@@ -38,11 +38,8 @@ public class FirstPlayerController : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
-        Interact();
-        if (playerActions.PlayerMap.Interact1.WasReleasedThisFrame() && interactItem != null)
-        {
-            interactItem.usedThisRound = false;
-        }
+        playerActions.PlayerMap.Interact1.performed += _ => Interact();
+        
     }
 
     void MovePlayer()
@@ -75,7 +72,7 @@ public class FirstPlayerController : MonoBehaviour
 
     void Interact()
     {
-        if (playerActions.PlayerMap.Interact1.WasPressedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && interactItem.player1 && !interacting)
+        if (interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && interactItem.player1 && !interacting)
         {
             audioSrc.clip = interact;
             audioSrc.loop = false;
@@ -94,7 +91,7 @@ public class FirstPlayerController : MonoBehaviour
                 interacting = true;
             }
         }
-        else if (interacting && playerActions.PlayerMap.Interact1.WasPressedThisFrame())
+        else if (interacting)
         {
             audioSrc.clip = interact;
             audioSrc.loop = false;
