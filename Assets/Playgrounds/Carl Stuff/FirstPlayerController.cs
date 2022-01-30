@@ -36,24 +36,9 @@ public class FirstPlayerController : MonoBehaviour
     {
         MovePlayer();
         Interact();
-        if (interacting)
+        if (playerActions.PlayerMap.Interact1.WasReleasedThisFrame() && interactItem != null)
         {
-            canMove = false;
-            if (playerActions.PlayerMap.Interact1.WasReleasedThisFrame())
-            {
-                interactItem.Use();
-                if(interactItem.used)
-                {
-                    interactItem.beingUsed = false;
-                    StartCoroutine(InteractCooldown(1.5f));
-                    interacting = false;
-                }
-                /*
-                interactItem.beingUsed = false;
-                StartCoroutine(InteractCooldown(1.5f));
-                interacting = false;
-                */
-            }
+            interactItem.usedThisRound = false;
         }
     }
 
@@ -76,7 +61,7 @@ public class FirstPlayerController : MonoBehaviour
 
     void Interact()
     {
-        if (playerActions.PlayerMap.Interact1.WasReleasedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && interactItem.player1)
+        if (playerActions.PlayerMap.Interact1.WasPressedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && interactItem.player1 && !interacting)
         {
             //ADD SINGLE INTERACT SFX
             canMove = false;
@@ -92,6 +77,17 @@ public class FirstPlayerController : MonoBehaviour
             {
                 interacting = true;
             }
+        }
+        else if (interacting && playerActions.PlayerMap.Interact1.WasPressedThisFrame())
+        {
+                canMove = false;
+                interactItem.Use();
+                if (interactItem.used)
+                {
+                    interactItem.beingUsed = false;
+                    StartCoroutine(InteractCooldown(1.5f));
+                    interacting = false;
+                }
         }
     }
 
