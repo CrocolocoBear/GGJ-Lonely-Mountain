@@ -12,6 +12,14 @@ public class Interactable : MonoBehaviour
     public bool disappear = false;
     public Interactable nextObject;
     private HighlightEffect highlighter;
+    public GameObject textBox;
+    /*
+    Textbox will work by gameobjects who have switch beingUsed to true, 
+    if alpha of Textbox is less than 1 they fade in
+    player gets frozen
+    they have to interact again to remove it
+    if used and alpha more than 0, fade out
+    */
     // Start is called before the first frame update
     void Start()
     {

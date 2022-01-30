@@ -16,6 +16,7 @@ public class SecondPlayerController : MonoBehaviour
     //[SerializeField] private AudioClip walkingLoop;
     //[SerializeField] private AudioClip walkingLoop;
     bool canMove = true;
+    private bool interacting = false;
     public Interactable interactItem;
     [SerializeField] Animator animator;
 
@@ -45,6 +46,16 @@ public class SecondPlayerController : MonoBehaviour
     {
         MovePlayer();
         Interact();
+        if(interacting)
+        {
+            canMove = false;
+            if (playerActions.PlayerMap.Interact2.WasPressedThisFrame())
+            {
+                interactItem.beingUsed = false;
+                StartCoroutine(InteractCooldown(1.5f));
+                interacting = false;
+            }
+        }
     }
 
     void MovePlayer()
@@ -74,7 +85,14 @@ public class SecondPlayerController : MonoBehaviour
             animator.SetBool("Walking", false);
             animator.SetBool("Interacting", true);
             interactItem.Use();
-            StartCoroutine(InteractCooldown());
+            if (!interactItem.beingUsed)
+            {
+                StartCoroutine(InteractCooldown(1.5f));
+            }
+            else
+            {
+                interacting = true;
+            }
         }
     }
 
@@ -94,9 +112,9 @@ public class SecondPlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator InteractCooldown()
+    IEnumerator InteractCooldown(float duration)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(duration);
         animator.SetBool("Interacting", false);
         canMove = true;
     }
