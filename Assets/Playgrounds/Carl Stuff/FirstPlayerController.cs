@@ -81,7 +81,7 @@ public class FirstPlayerController : MonoBehaviour
             audioSrc.loop = false;
             audioSrc.Play();
             canMove = false;
-            transform.forward = (interactItem.gameObject.transform.position - transform.position).normalized;
+            //transform.forward = (interactItem.gameObject.transform.position - transform.position).normalized;
             animator.SetBool("Walking", false);
             animator.SetBool("Interacting", true);
             interactItem.Use();
