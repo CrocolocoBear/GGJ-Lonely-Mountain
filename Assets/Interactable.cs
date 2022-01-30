@@ -10,9 +10,10 @@ public class Interactable : MonoBehaviour
     public bool beingUsed = false;
     public bool usable = false;
     public bool disappear = false;
+    public bool textBoxActive = false;
     public Interactable nextObject;
     private HighlightEffect highlighter;
-    public GameObject textBox;
+    public TextBox textBox;
     /*
     Textbox will work by gameobjects who have switch beingUsed to true, 
     if alpha of Textbox is less than 1 they fade in
@@ -42,15 +43,32 @@ public class Interactable : MonoBehaviour
 
     public void Use()
     {
-        used = true;
-        if (nextObject != null)
+        if (!textBox.moreLines)
         {
-            nextObject.used = false;
+            used = true;
+            if (nextObject != null)
+            {
+                nextObject.used = false;
+            }
+            if (disappear)
+            {
+                gameObject.SetActive(false);
+                textBox.box.SetActive(false);
+            }
         }
-        if (disappear)
+        else if (textBoxActive && textBox.moreLines)
         {
-            gameObject.SetActive(false);
+            textBox.NextLine();
         }
+        else if(!textBoxActive)
+        {
+            beingUsed = true;
+            textBoxActive = true;
+            textBox.box.SetActive(true);
+            textBox.text.text = textBox.lines[0];
+        }
+
+
     }
 
     private void OnTriggerEnter(Collider other)

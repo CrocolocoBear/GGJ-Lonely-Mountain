@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c96f0e232dd1a2c47b3e38310711c03e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Calamity Jane NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 69cc889015175334197582f69f88676a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

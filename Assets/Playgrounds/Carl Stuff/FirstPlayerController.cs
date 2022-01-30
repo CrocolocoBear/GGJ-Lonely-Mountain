@@ -11,7 +11,7 @@ public class FirstPlayerController : MonoBehaviour
     [SerializeField] private Vector2 moveInput;
     [SerializeField] private Rigidbody rBody;
     bool canMove = true;
-    private bool interacting = false;
+    public bool interacting = false;
     public Interactable interactItem;
     [SerializeField] Animator animator;
 
@@ -39,11 +39,20 @@ public class FirstPlayerController : MonoBehaviour
         if (interacting)
         {
             canMove = false;
-            if (playerActions.PlayerMap.Interact2.WasPressedThisFrame())
+            if (playerActions.PlayerMap.Interact1.WasReleasedThisFrame())
             {
+                interactItem.Use();
+                if(interactItem.used)
+                {
+                    interactItem.beingUsed = false;
+                    StartCoroutine(InteractCooldown(1.5f));
+                    interacting = false;
+                }
+                /*
                 interactItem.beingUsed = false;
                 StartCoroutine(InteractCooldown(1.5f));
                 interacting = false;
+                */
             }
         }
     }
@@ -67,7 +76,7 @@ public class FirstPlayerController : MonoBehaviour
 
     void Interact()
     {
-        if (playerActions.PlayerMap.Interact1.WasPressedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && interactItem.player1)
+        if (playerActions.PlayerMap.Interact1.WasReleasedThisFrame() && interactItem != null && interactItem.usable && !interactItem.used && !interactItem.beingUsed && interactItem.player1)
         {
             //ADD SINGLE INTERACT SFX
             canMove = false;
@@ -103,7 +112,7 @@ public class FirstPlayerController : MonoBehaviour
     }
 
 
-    IEnumerator InteractCooldown(float duration)
+    public IEnumerator InteractCooldown(float duration)
     {
         yield return new WaitForSeconds(duration);
         animator.SetBool("Interacting", false);
