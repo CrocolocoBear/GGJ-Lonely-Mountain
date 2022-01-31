@@ -49,6 +49,7 @@ public class Interactable : MonoBehaviour
         {
             used = true;
             unlocked = true;
+            textBox.box.SetActive(false);
             if (nextObject != null)
             {
                 nextObject.used = false;
@@ -56,7 +57,7 @@ public class Interactable : MonoBehaviour
             if (disappear)
             {
                 gameObject.SetActive(false);
-                textBox.box.SetActive(false);
+                
             }
         }
         else if (textBoxActive && textBox.moreLines)
