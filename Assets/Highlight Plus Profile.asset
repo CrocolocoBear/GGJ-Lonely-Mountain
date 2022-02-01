@@ -19,49 +19,40 @@ MonoBehaviour:
   effectNameFilter: 
   combineMeshes: 0
   alphaCutOff: 0
-  cullBackFaces: 1
+  cullBackFaces: 0
   normalsOption: 0
   fadeInDuration: 0
   fadeOutDuration: 0
   constantWidth: 1
-  overlay: 0.5
-  overlayColor: {r: 0, g: 0, b: 0, a: 1}
+  overlay: 0.109
+  overlayColor: {r: 1, g: 0.21744737, b: 0.015686274, a: 1}
   overlayAnimationSpeed: 1
   overlayMinIntensity: 0.5
   overlayBlending: 1
   overlayTexture: {fileID: 0}
   overlayTextureScale: 1
-  outline: 1
+  outline: 0
   outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 0.45
+  outlineWidth: 0.5
   outlineQuality: 3
   outlineDownsampling: 2
   outlineVisibility: 0
   outlineIndependent: 0
-  glow: 1
-  glowWidth: 0.4
-  glowQuality: 3
+  glow: 0.4
+  glowWidth: 15
+  glowQuality: 0
   glowDownsampling: 2
   glowHQColor: {r: 0.64, g: 1, b: 0, a: 1}
-  glowDithering: 1
+  glowDithering: 0
   glowMagicNumber1: 0.75
   glowMagicNumber2: 0.5
   glowAnimationSpeed: 1
   glowVisibility: 0
-  glowBlendPasses: 1
+  glowBlendPasses: 0
   glowPasses:
-  - offset: 4
-    alpha: 0.1
-    color: {r: 0.64, g: 1, b: 0, a: 1}
-  - offset: 3
-    alpha: 0.2
-    color: {r: 0.64, g: 1, b: 0, a: 1}
-  - offset: 2
-    alpha: 0.3
-    color: {r: 0.64, g: 1, b: 0, a: 1}
-  - offset: 1
-    alpha: 0.4
-    color: {r: 0.64, g: 1, b: 0, a: 1}
+  - offset: 0.2
+    alpha: 1
+    color: {r: 0.8773585, g: 0.0070084836, b: 0, a: 1}
   innerGlow: 0
   innerGlowWidth: 1
   innerGlowColor: {r: 1, g: 1, b: 1, a: 1}
@@ -85,7 +76,7 @@ MonoBehaviour:
   seeThrough: 0
   seeThroughOccluderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
   seeThroughOccluderMaskAccurate: 0
   seeThroughOccluderThreshold: 0.3
   seeThroughOccluderCheckInterval: 1
@@ -100,7 +91,7 @@ MonoBehaviour:
   seeThroughBorderColor: {r: 0, g: 0, b: 0, a: 1}
   seeThroughBorderWidth: 0.45
   seeThroughOrdered: 0
-  hitFxInitialIntensity: 1
+  hitFxInitialIntensity: 0
   hitFxMode: 0
   hitFxFadeOutDuration: 0.25
   hitFxColor: {r: 1, g: 1, b: 1, a: 1}

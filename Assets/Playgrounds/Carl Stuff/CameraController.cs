@@ -18,14 +18,26 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player1.position.magnitude > player2.position.magnitude)
+        if((-transform.forward * player1.position.magnitude * zoomLevel).y < 25 && (-transform.forward * player1.position.magnitude * zoomLevel).y < 25)
         {
-            transform.position = -transform.forward * player1.position.magnitude * zoomLevel;
+            if (player1.position.magnitude > player2.position.magnitude)
+            {
+                transform.position = -transform.forward * player1.position.magnitude * zoomLevel;
+            }
+            else
+            {
+                transform.position = -transform.forward * player2.position.magnitude * zoomLevel;
+            }  
         }
         else
         {
-            transform.position = -transform.forward * player2.position.magnitude * zoomLevel;
+            
         }
+        if (transform.position.y > 25)
+        {
+            transform.position = new Vector3(0, 25, -14.4f);
+        }
+
         /*
         if (splitMng.state == 0)
         {

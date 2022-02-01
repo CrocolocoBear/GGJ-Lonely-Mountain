@@ -55,7 +55,7 @@ public class FirstPlayerController : MonoBehaviour
             animator.SetBool("Walking", true);
             moveInput = playerActions.PlayerMap.Movement1.ReadValue<Vector2>();
             transform.forward = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-            rBody.velocity = transform.forward * speed;
+            rBody.velocity = new Vector3((transform.forward * speed).x, rBody.velocity.y, (transform.forward * speed).z);
             //transform.position += transform.forward * speed * Time.deltaTime;
         }
         else
@@ -84,7 +84,7 @@ public class FirstPlayerController : MonoBehaviour
             interactItem.Use();
             if (!interactItem.beingUsed)
             {
-                StartCoroutine(InteractCooldown(1.5f));
+                StartCoroutine(InteractCooldown(1.1f));
             }
             else
             {
@@ -101,7 +101,7 @@ public class FirstPlayerController : MonoBehaviour
                 if (interactItem.used)
                 {
                     interactItem.beingUsed = false;
-                    StartCoroutine(InteractCooldown(1.5f));
+                    StartCoroutine(InteractCooldown(1.1f));
                     interacting = false;
                 }
         }

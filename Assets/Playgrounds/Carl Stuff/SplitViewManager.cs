@@ -41,6 +41,8 @@ public class SplitViewManager : MonoBehaviour
         }
         else if (finalScene)
         {
+            mask2.rotation = Quaternion.Euler(0, 0, 0);
+            cam2Tex.eulerAngles = new Vector3(0, 0, 0f);
             mask2.localPosition = new Vector3(-960, 0, 0);
             cam2Tex.localPosition = new Vector3(960, 0, 0);
             separator.gameObject.SetActive(false);
